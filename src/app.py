@@ -15,7 +15,7 @@ locale.setlocale(locale.LC_TIME, '')
 
 @app.route('/')
 def homepage():
-
+    noseusa = 23
     the_time = datetime.now().strftime("%A, %d %b %Y %H:%M")
 
     # Render HTML with variable
