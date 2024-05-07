@@ -1,0 +1,23 @@
+name: AWS deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  aws:
+    name: Deploy image to aws
+    runs-on: ubuntu-latest
+    steps:
+    - name: multiple command
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOSTNAME }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.AWS_PRIVATEKEY }}
+        port: 22  # ${{ secrets.PORT }}
+        script: |
+            sleep 60
+            docker stop web && docker rm web
+            docker rmi rafarota/galeria
+            docker run -d -p 80:5000 --name web rafarota/galeria
