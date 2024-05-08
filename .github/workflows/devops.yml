@@ -62,9 +62,10 @@ jobs:
             docker rmi rafarota/galeria
             docker run -d -p 80:5000 --name web rafarota/galeria
   
-    health_check_job:
+  health_check_job:
     runs-on: ubuntu-latest
     name: Check for status 200 and title text "lokerse.dev"
+    needs: aws
     steps:
       - uses: actions/checkout@v2
       - id: test
