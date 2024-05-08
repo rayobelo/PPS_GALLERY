@@ -1,6 +1,6 @@
 
 # From https://github.com/datademofun/heroku-basic-flask
-# Nota: en ese tutorial se ve como hacerlo 
+# Nota: en ese tutorial se ve como hacerlo
 #  - con Heroku CLI
 #  - sin usar GitHub
 #   Aunque luego al final lo manda a GitHub
@@ -20,7 +20,7 @@ def homepage():
     the_time = datetime.now().strftime("%A, %d %b %Y %H:%M")
 
     # Render HTML with variable
-    return render_template("index.html", the_time=the_time, tema="dogs")
+    return render_template("index.html", the_time=the_time, tema="ferias")
 
     # return f"""
     # <h1>Hello heroku</h1>
@@ -35,8 +35,8 @@ def homepage_spain():
     the_time = datetime.now().strftime("%A, %d %b %Y %H:%M")
 
     # Render HTML with variable
-    return render_template("index.html", the_time=the_time, tema="spain" )
+    return render_template("index.html", the_time=the_time, tema="spain")
 
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True) 
+    app.run(debug=True, use_reloader=True)
